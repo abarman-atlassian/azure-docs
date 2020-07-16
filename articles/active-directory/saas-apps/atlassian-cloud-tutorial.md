@@ -33,8 +33,7 @@ To learn more about SaaS app integration with Azure AD, see [What is application
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get one-month free trial [here](https://azure.microsoft.com/pricing/free-trial/).
-* Atlassian Cloud single sign-on (SSO) enabled subscription.
-* To enable Security Assertion Markup Language (SAML) single sign-on for Atlassian Cloud products, you need to set up Atlassian Access. Learn more about [Atlassian Access]( https://www.atlassian.com/enterprise/cloud/identity-manager).
+* Atlassian Cloud single sign-on (SSO) enabled subscription. To enable Security Assertion Markup Language (SAML) single sign-on for Atlassian Cloud products, you need to purchase an Atlassian Access subscription. Learn more about [Atlassian Access]( https://www.atlassian.com/software/access).
 
 ## Scenario description
 
@@ -91,16 +90,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     > [!NOTE]
     > The preceding values are not real. Update these values with the actual identifier and reply URL. You will get these real values from the **Atlassian Cloud SAML Configuration** screen which is explained later at step 7 of **Configure Atlassian Cloud SSO** in the tutorial.
-
-1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
-
-    In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<instancename>.atlassian.net`
-
-    > [!NOTE]
-	> The Sign on URL value is not real. Paste the  value from the instance which you use to signin to the Atlassian Cloud admin portal.
-
-    ![Configure single sign-on](./media/atlassian-cloud-tutorial/tutorial-atlassiancloud-10.png)
 
 1. Your Atlassian Cloud application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. Atlassian Cloud application expects **nameidentifier** to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
@@ -164,7 +153,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. You need to verify your domain before going to configure single sign-on. For more information, see [Atlassian domain verification](https://confluence.atlassian.com/cloud/domain-verification-873871234.html) document.
 
-1. In the left pane, select **Security** > **SAML single sign-on**. If you haven't already done so, subscribe to Atlassian Identity Manager.
+1. In the left pane, select **Security** > **SAML single sign-on**. If you haven't already done so, subscribe to Atlassian Access.
 
 	![Configure single sign-on](./media/atlassian-cloud-tutorial/tutorial-atlassiancloud-11.png)
 
@@ -176,7 +165,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     b. In the **Identity provider SSO URL** box, paste the **Login URL** that you copied from the Azure portal.
 
-    c. Open the downloaded certificate from the Azure portal in a .txt file, copy the value (without the *Begin Certificate* and *End Certificate* lines), and then paste it in the **Public X509 certificate** box.
+    c. Open the downloaded certificate from the Azure portal in a .txt file, copy the value (include the *Begin Certificate* and *End Certificate* lines), and then paste it in the **Public X509 certificate** box.
 
     d. Click **Save Configuration**.
 
